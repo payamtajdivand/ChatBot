@@ -44,6 +44,13 @@
 
           setInputText("");
         }
+        const sendByEnterOrCancelByEscape = (event) => {
+          if (event.key === "Enter") {
+            sendMessage();
+          } else if (event.key === "Escape") {
+            setInputText("");
+          }
+        };
 
         return (
           <>
@@ -52,6 +59,7 @@
               size="30"
               onChange={saveInputText}
               value={inputText}
+              onKeyDown={sendByEnterOrCancelByEscape}
             />
             <button onClick={sendMessage}>Send</button>
           </>
